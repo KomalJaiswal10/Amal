@@ -2,10 +2,10 @@ import 'package:amal/service/constant/assets.dart';
 import 'package:amal/service/constant/colors.dart';
 import 'package:amal/service/constant/dimensions.dart';
 import 'package:amal/service/constant/strings.dart';
+import 'package:amal/service/router/transitions.dart';
 import 'package:amal/view/src/authentication/login.dart';
 import 'package:animated_text_kit/animated_text_kit.dart';
 import 'package:flutter/material.dart';
-import 'package:page_transition/page_transition.dart';
 
 class SplashScreen extends StatelessWidget {
   const SplashScreen({super.key});
@@ -51,10 +51,8 @@ class SplashScreen extends StatelessWidget {
           return Visibility(
             visible: isVisible,
             child: AnimatedTextKit(
-              onFinished: () => Navigator.push(
-                  context,
-                  PageTransition(
-                      type: PageTransitionType.fade, child: const LoginView())),
+              onFinished: () =>
+                  AppPageTransitions.fade(child: const LoginPage()),
               totalRepeatCount: 1,
               animatedTexts: [
                 FadeAnimatedText(AppString.appName,
