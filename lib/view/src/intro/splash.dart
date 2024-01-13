@@ -1,8 +1,11 @@
+import 'package:amal/service/constant/assets.dart';
 import 'package:amal/service/constant/colors.dart';
 import 'package:amal/service/constant/dimensions.dart';
+import 'package:amal/service/constant/strings.dart';
 import 'package:amal/view/src/authentication/login.dart';
 import 'package:animated_text_kit/animated_text_kit.dart';
 import 'package:flutter/material.dart';
+import 'package:page_transition/page_transition.dart';
 
 class SplashScreen extends StatelessWidget {
   const SplashScreen({super.key});
@@ -10,15 +13,14 @@ class SplashScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     bool isAnimated = false;
-
     bool isVisible = false;
+    final double logoSize = Dimensions.width * .52;
 
-    final double bigFontSize = Dimensions.width * .52;
     return Scaffold(
       body: Stack(alignment: Alignment.center, children: <Widget>[
         Center(
           child: SizedBox(
-            width: 200,
+            width: Dimensions.width * .5,
             height: 350,
             child: Stack(
               children: <Widget>[
@@ -27,29 +29,35 @@ class SplashScreen extends StatelessWidget {
                       .then((value) => innerStateOne(() => isAnimated = true));
 
                   return AnimatedPositioned(
-                      width: isAnimated ? 60.0 : 200.0,
-                      top: isAnimated ? 110.0 : 50.0,
-                      right: isAnimated ? 5 : 0,
+                      width: isAnimated
+                          ? Dimensions.width * .16
+                          : Dimensions.width * .48,
+                      top: isAnimated
+                          ? Dimensions.height * .115
+                          : Dimensions.height * .06,
+                      right: isAnimated ? Dimensions.width * .014 : 0,
                       duration: const Duration(seconds: 2),
                       curve: Curves.fastOutSlowIn,
-                      child: Image.asset('assets/amal_lotus.png',
-                          width: bigFontSize));
+                      child: Image.asset(AppAssets.logo, width: logoSize));
                 })
               ],
             ),
           ),
         ),
         StatefulBuilder(builder: (context, innerStateTwo) {
-          // Future.delayed(const Duration(milliseconds: 1500))
-          //     .then((value) => innerStateTwo(() => isVisible = true));
+          Future.delayed(const Duration(milliseconds: 1500))
+              .then((value) => innerStateTwo(() => isVisible = true));
+
           return Visibility(
             visible: isVisible,
             child: AnimatedTextKit(
-              onFinished: () => Navigator.push(context,
-                  MaterialPageRoute(builder: (context) => const LoginView())),
+              onFinished: () => Navigator.push(
+                  context,
+                  PageTransition(
+                      type: PageTransitionType.fade, child: const LoginView())),
               totalRepeatCount: 1,
               animatedTexts: [
-                FadeAnimatedText('Amal',
+                FadeAnimatedText(AppString.appName,
                     textAlign: TextAlign.center,
                     textStyle: const TextStyle(
                         fontFamily: 'Mrs Saint Delafield',

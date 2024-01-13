@@ -1,4 +1,4 @@
-import 'package:amal/service/constant/appfinals.dart';
+import 'package:amal/service/constant/finals.dart';
 import 'package:amal/service/constant/colors.dart';
 import 'package:amal/view/src/intro/splash.dart';
 import 'package:amal/view/widgets/extensions.dart';
