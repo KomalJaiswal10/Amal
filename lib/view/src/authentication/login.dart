@@ -1,4 +1,3 @@
-
 import 'package:amal/service/constant/finals.dart';
 import 'package:amal/service/theme/cubit/theme_cubit.dart';
 import 'package:amal/view/widgets/buttons.dart';
@@ -19,7 +18,7 @@ class LoginPage extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             const CustomTextField(
-              hint: 'Username',
+              hint: 'Phone / Email / Username',
               prefixIcon: Icons.account_box,
             ),
             15.heigth,

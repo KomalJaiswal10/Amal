@@ -1,5 +1,6 @@
 import 'package:amal/service/constant/colors.dart';
 import 'package:amal/service/constant/finals.dart';
+import 'package:amal/service/constant/strings.dart';
 import 'package:amal/service/theme/cubit/theme_cubit.dart';
 import 'package:amal/service/theme/cubit/theme_state.dart';
 import 'package:amal/view/src/intro/splash.dart';
@@ -20,7 +21,7 @@ class MyApp extends StatelessWidget {
         child: BlocBuilder<ThemeCubit, ThemeState>(builder: (context, state) {
           return MaterialApp(
             debugShowCheckedModeBanner: false,
-            title: 'Amal',
+            title: AppString.appName,
             theme: state.themeData,
             navigatorKey: AppFinals.globalStateKey,
             home: const SplashScreen(),
