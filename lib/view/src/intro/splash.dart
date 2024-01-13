@@ -11,20 +11,21 @@ class SplashScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     bool isAnimated = false;
 
-    bool isShow = false;
+    bool isVisible = false;
 
-    final double bigFontSize = Dimensions.width * .5;
+    final double bigFontSize = Dimensions.width * .52;
     return Scaffold(
-      body: Center(
-        child: Stack(alignment: Alignment.center, children: <Widget>[
-          SizedBox(
+      body: Stack(alignment: Alignment.center, children: <Widget>[
+        Center(
+          child: SizedBox(
             width: 200,
             height: 350,
             child: Stack(
               children: <Widget>[
                 StatefulBuilder(builder: (context, innerStateOne) {
-                  Future.delayed(const Duration(seconds: 2))
+                  Future.delayed(const Duration(seconds: 1))
                       .then((value) => innerStateOne(() => isAnimated = true));
+
                   return AnimatedPositioned(
                       width: isAnimated ? 60.0 : 200.0,
                       top: isAnimated ? 110.0 : 50.0,
@@ -37,29 +38,28 @@ class SplashScreen extends StatelessWidget {
               ],
             ),
           ),
-          StatefulBuilder(builder: (context, innerStateTwo) {
-            Future.delayed(const Duration(milliseconds: 2500))
-                .then((value) => innerStateTwo(() => isShow = true));
-            return Visibility(
-              visible: isShow,
-              child: AnimatedTextKit(
-                onFinished: () => Navigator.push(context,
-                    MaterialPageRoute(builder: (context) => const LoginView())),
-                totalRepeatCount: 1,
-                animatedTexts: [
-                  FadeAnimatedText('Amal',
-                      // fadeOutBegin: 0.9,
-                      textAlign: TextAlign.center,
-                      textStyle: const TextStyle(
-                          fontFamily: 'Mrs Saint Delafield',
-                          fontSize: 120,
-                          color: AppColors.primaryBlue)),
-                ],
-              ),
-            );
-          })
-        ]),
-      ),
+        ),
+        StatefulBuilder(builder: (context, innerStateTwo) {
+          // Future.delayed(const Duration(milliseconds: 1500))
+          //     .then((value) => innerStateTwo(() => isVisible = true));
+          return Visibility(
+            visible: isVisible,
+            child: AnimatedTextKit(
+              onFinished: () => Navigator.push(context,
+                  MaterialPageRoute(builder: (context) => const LoginView())),
+              totalRepeatCount: 1,
+              animatedTexts: [
+                FadeAnimatedText('Amal',
+                    textAlign: TextAlign.center,
+                    textStyle: const TextStyle(
+                        fontFamily: 'Mrs Saint Delafield',
+                        fontSize: 120,
+                        color: AppColors.primaryBlue)),
+              ],
+            ),
+          );
+        })
+      ]),
     );
   }
 }
