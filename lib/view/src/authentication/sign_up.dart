@@ -1,3 +1,4 @@
+import 'package:amal/service/constant/colors.dart';
 import 'package:amal/service/constant/finals.dart';
 import 'package:amal/service/theme/cubit/theme_cubit.dart';
 import 'package:amal/view/widgets/buttons.dart';
@@ -39,11 +40,14 @@ class SignUpView extends StatelessWidget {
               onTap: submit,
             ),
             20.heigth,
+            const Divider(
+              thickness: 2,
+            ),
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 const Divider(
-                  thickness: 1,
+                  thickness: 3,
                 ),
                 CustomText(title: 'LOGIN').smallText(),
                 const Divider(
