@@ -5,4 +5,5 @@ class AppFinals {
 
   static GlobalKey<NavigatorState> globalStateKey = GlobalKey<NavigatorState>();
   static BuildContext context = globalStateKey.currentContext!;
+  
 }
