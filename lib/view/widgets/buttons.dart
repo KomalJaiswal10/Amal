@@ -1,4 +1,3 @@
-
 import 'package:amal/service/constant/colors.dart';
 import 'package:amal/service/constant/dimensions.dart';
 import 'package:amal/service/theme/cubit/theme_cubit.dart';
@@ -45,7 +44,9 @@ class CustomButton extends StatelessWidget {
                             color: state.colorTheme.buttonShadow)
                       ]
                     : []),
-            child: Center(child: CustomText('SIGN IN').buttonText()),
+            child: Center(
+                child: CustomText(title: 'SIGN IN')
+                    .buttonText()),
           ));
     });
   }

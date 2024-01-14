@@ -3,7 +3,7 @@ import 'package:amal/service/constant/colors.dart';
 import 'package:amal/service/constant/dimensions.dart';
 import 'package:amal/service/constant/strings.dart';
 import 'package:amal/service/route/transitions.dart';
-import 'package:amal/view/src/authentication/login.dart';
+import 'package:amal/view/src/authentication/sign_up.dart';
 import 'package:animated_text_kit/animated_text_kit.dart';
 import 'package:flutter/material.dart';
 
@@ -52,7 +52,7 @@ class SplashScreen extends StatelessWidget {
             visible: isVisible,
             child: AnimatedTextKit(
               onFinished: () =>
-                  AppPageTransitions.fade(child: const LoginPage()),
+                  AppPageTransitions.fade(child: const SignUpView()),
               totalRepeatCount: 1,
               animatedTexts: [
                 FadeAnimatedText(AppString.appName,

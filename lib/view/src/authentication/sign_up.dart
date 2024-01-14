@@ -3,11 +3,12 @@ import 'package:amal/service/theme/cubit/theme_cubit.dart';
 import 'package:amal/view/widgets/buttons.dart';
 import 'package:amal/view/widgets/extensions.dart';
 import 'package:amal/view/widgets/textfields.dart';
+import 'package:amal/view/widgets/texts.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-class LoginPage extends StatelessWidget {
-  const LoginPage({super.key});
+class SignUpView extends StatelessWidget {
+  const SignUpView({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -18,16 +19,37 @@ class LoginPage extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             const CustomTextField(
-              hint: 'Phone / Email / Username',
+              hint: 'Your name',
               prefixIcon: Icons.account_box,
             ),
             15.heigth,
+            const CustomTextField(
+              hint: 'Mobile number or email',
+              prefixIcon: Icons.email,
+            ),
+            15.heigth,
             const CustomTextField(hint: 'Password', prefixIcon: Icons.key),
+            15.heigth,
+            const CustomTextField(
+                hint: 'Confirm password', prefixIcon: Icons.check_box_rounded),
             40.heigth,
             CustomButton(
               text: 'SIGN IN',
               isExpand: true,
               onTap: submit,
+            ),
+            20.heigth,
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                const Divider(
+                  thickness: 1,
+                ),
+                CustomText(title: 'LOGIN').smallText(),
+                const Divider(
+                  thickness: 1,
+                ),
+              ],
             )
           ],
         ),
@@ -38,6 +60,5 @@ class LoginPage extends StatelessWidget {
   void submit() {
     final cubit = AppFinals.context.read<ThemeCubit>();
     cubit.toggleTheme();
-    print(AppFinals.context.read<ThemeCubit>().state.colorTheme.textFieldBg);
   }
 }
