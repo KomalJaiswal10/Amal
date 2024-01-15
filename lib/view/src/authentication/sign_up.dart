@@ -1,4 +1,3 @@
-import 'package:amal/service/constant/colors.dart';
 import 'package:amal/service/constant/finals.dart';
 import 'package:amal/service/theme/cubit/theme_cubit.dart';
 import 'package:amal/view/widgets/buttons.dart';
@@ -35,7 +34,7 @@ class SignUpView extends StatelessWidget {
                 hint: 'Confirm password', prefixIcon: Icons.check_box_rounded),
             40.heigth,
             CustomButton(
-              text: 'SIGN IN',
+              text: 'SIGN UP',
               isExpand: true,
               onTap: submit,
             ),

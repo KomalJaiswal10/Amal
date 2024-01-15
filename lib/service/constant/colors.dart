@@ -13,7 +13,8 @@ class AppColors {
   static const Color transparent = Colors.transparent;
 
   // Background Colors
-  static const whiteBg = Color(0xffE3EBF3);
+  static Color whiteBg = const Color(0xffE3EBF3).withOpacity(.5
+  );
   static const grey = Colors.grey;
   static Color whiteOpacity = Colors.white.withOpacity(.6);
 }

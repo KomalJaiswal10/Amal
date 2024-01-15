@@ -44,9 +44,7 @@ class CustomButton extends StatelessWidget {
                             color: state.colorTheme.buttonShadow)
                       ]
                     : []),
-            child: Center(
-                child: CustomText(title: 'SIGN IN')
-                    .buttonText()),
+            child: Center(child: CustomText(title: text).buttonText()),
           ));
     });
   }
